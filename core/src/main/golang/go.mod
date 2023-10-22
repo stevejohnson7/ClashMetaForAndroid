@@ -3,7 +3,7 @@ module cfa
 go 1.20
 
 require (
-	github.com/Dreamacro/clash v1.7.0
+	github.com/Dreamacro/clash v1.7.1
 	github.com/Kr328/tun2socket v0.0.0-20220414050025-d07c78d06d34
 	github.com/dlclark/regexp2 v1.10.0
 	github.com/miekg/dns v1.1.56
@@ -74,7 +74,7 @@ require (
 	github.com/ericlagergren/polyval v0.0.0-20230805202542-18692a1b76f9 // indirect
 	github.com/ericlagergren/siv v0.0.0-20220507050439-0b757b3aa5f1 // indirect
 	github.com/ericlagergren/subtle v0.0.0-20220507045147-890d697da010 // indirect
-	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/gaukas/godicttls v0.0.4 // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
