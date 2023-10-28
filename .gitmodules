@@ -1,4 +1,4 @@
 [submodule "clash-foss"]
 	path = core/src/foss/golang/clash
-	url = https://github.com/MetaCubeX/Clash.Meta
+	url = https://github.com/stevejohnson7/Clash.Meta
 	branch = android-real
