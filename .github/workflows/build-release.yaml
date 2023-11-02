@@ -68,7 +68,7 @@ jobs:
             newVersionCode=${{ steps.process-version.outputs.versonCode }}
             git config --global user.name 'GitHub Action'
             git config --global user.email 'action@github.com'
-            git add .
+            git add build.gradle.kts
             git commit -am "Bump version to $newVersionName ($newVersionCode)"
             git tag "v$newVersionName"
             git push --follow-tags
