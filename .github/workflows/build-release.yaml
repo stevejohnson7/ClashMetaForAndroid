@@ -57,19 +57,19 @@ jobs:
           versionCode: ${{ steps.process-version.outputs.versonCode }}
           versionName: ${{ steps.process-version.outputs.versonName }}
 
-      - name: Signing properties
-        env:
-          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
-          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
-        run: |
-          touch signing.properties
-          echo keystore.password="$SIGNING_STORE_PASSWORD" > signing.properties
-          echo key.alias="$SIGNING_KEY_ALIAS" >> signing.properties
-          echo key.password="$SIGNING_KEY_PASSWORD" >> signing.properties
+      # - name: Signing properties
+      #   env:
+      #     SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+      #     SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+      #     SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+      #   run: |
+      #     touch signing.properties
+      #     echo keystore.password="$SIGNING_STORE_PASSWORD" > signing.properties
+      #     echo key.alias="$SIGNING_KEY_ALIAS" >> signing.properties
+      #     echo key.password="$SIGNING_KEY_PASSWORD" >> signing.properties
             
-          echo "cat signing.properties"
-          cat signing.properties
+      #     echo "cat signing.properties"
+      #     cat signing.properties
 
       - name: Release Build
         if: success()
