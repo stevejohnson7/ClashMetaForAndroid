@@ -49,13 +49,30 @@ jobs:
           
           echo "versonName=${{ inputs.release-tag }}" >> $GITHUB_OUTPUT
           echo "versonCode=$VERSION_CODE" >> $GITHUB_OUTPUT
-              
-      - name: Re-write version in build.gradle.kts
+      
+      # Re-write version in build.gradle.kts
+      - name: Re-write version
         uses: Devofure/advance-android-version-actions@v1.4
         with:
           gradlePath: build.gradle.kts
           versionCode: ${{ steps.process-version.outputs.versonCode }}
           versionName: ${{ steps.process-version.outputs.versonName }}
+      
+      # If any change found, commit it and push
+      - name: Commit and push if changes
+        run: |
+          changes=$(git diff --name-only origin/main | wc -l)
+          if [ $changes -gt 0 ]
+          then
+            newVersionName=${{ steps.process-version.outputs.versonName }}
+            newVersionCode=${{ steps.process-version.outputs.versonCode }}
+            git config --global user.name 'GitHub Action'
+            git config --global user.email 'action@github.com'
+            git add .
+            git commit -am "Bump version to $newVersionName ($newVersionCode)"
+            git tag "v$newVersionName"
+            git push --follow-tags
+          fi
 
       # - name: Signing properties
       #   env:
