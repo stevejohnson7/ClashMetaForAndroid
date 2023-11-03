@@ -110,4 +110,6 @@ replace cfa => ../../main/golang
 
 replace github.com/Dreamacro/clash => ./clash
 
+replace github.com/Kr328/tun2socket => github.com/metacubex/tun2socket v0.0.0-20220414050025-d07c78d06d34
+
 replace cfa/blob => ../../../build/intermediates/golang_blob

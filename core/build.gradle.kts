@@ -12,7 +12,7 @@ plugins {
 }
 
 val geoipDatabaseUrl =
-    "https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country.mmdb"
+    "https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb"
 val geoipInvalidate = Duration.ofDays(7)!!
 val geoipOutput = buildDir.resolve("intermediates/golang_blob")
 val golangSource = file("src/main/golang/native")
