@@ -3,16 +3,16 @@ module cfa
 go 1.20
 
 require (
-	github.com/Dreamacro/clash v1.7.0
 	github.com/Kr328/tun2socket v0.0.0-20220414050025-d07c78d06d34
 	github.com/dlclark/regexp2 v1.10.0
+	github.com/metacubex/mihomo v1.7.0
 	github.com/miekg/dns v1.1.57
 	github.com/oschwald/maxminddb-golang v1.12.0
 	golang.org/x/sync v0.5.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
-replace github.com/Dreamacro/clash => ../../foss/golang/clash
+replace github.com/metacubex/mihomo => ../../foss/golang/clash
 
 replace github.com/sagernet/sing => github.com/metacubex/sing v0.0.0-20231118023733-957d84f17d2c
 
@@ -54,7 +54,6 @@ require (
 	github.com/mdlayher/socket v0.4.1 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
 	github.com/metacubex/gvisor v0.0.0-20231001104248-0f672c3fb8d8 // indirect
-	github.com/metacubex/mihomo v0.0.0-20231118073035-4362dfacc9a7 // indirect
 	github.com/metacubex/quic-go v0.39.1-0.20231019030608-fd969d66f16b // indirect
 	github.com/metacubex/sing-quic v0.0.0-20231008050747-a684db516966 // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.5 // indirect

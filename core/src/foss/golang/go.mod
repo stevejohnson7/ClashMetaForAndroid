@@ -8,7 +8,6 @@ require cfa/blob v0.0.0-00010101000000-000000000000 // indirect
 
 require (
 	github.com/3andne/restls-client-go v0.1.6 // indirect
-	github.com/Dreamacro/clash v1.7.0 // indirect
 	github.com/Kr328/tun2socket v0.0.0-20220414050025-d07c78d06d34 // indirect
 	github.com/RyuaNerin/go-krypto v1.2.4 // indirect
 	github.com/Yawning/aez v0.0.0-20211027044916-e49e68abd344 // indirect
@@ -47,7 +46,7 @@ require (
 	github.com/mdlayher/socket v0.5.0 // indirect
 	github.com/metacubex/gopacket v1.1.20-0.20230608035415-7e2f98a3e759 // indirect
 	github.com/metacubex/gvisor v0.0.0-20231001104248-0f672c3fb8d8 // indirect
-	github.com/metacubex/mihomo v0.0.0-20231118073035-4362dfacc9a7 // indirect
+	github.com/metacubex/mihomo v1.7.0 // indirect
 	github.com/metacubex/quic-go v0.39.1-0.20231019030608-fd969d66f16b // indirect
 	github.com/metacubex/sing-quic v0.0.0-20231008050747-a684db516966 // indirect
 	github.com/metacubex/sing-shadowsocks v0.2.5 // indirect
@@ -113,7 +112,7 @@ replace github.com/sagernet/sing => github.com/metacubex/sing v0.0.0-20231118023
 
 replace cfa => ../../main/golang
 
-replace github.com/Dreamacro/clash => ./clash
+replace github.com/metacubex/mihomo => ./clash
 
 replace github.com/Kr328/tun2socket => github.com/metacubex/tun2socket v0.0.0-20220414050025-d07c78d06d34
 
