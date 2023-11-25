@@ -251,4 +251,6 @@
     <string name="force_dns_mapping">Force DNS Mapping</string>
     <string name="parse_pure_ip">Parse Pure IP</string>
     <string name="override_destination">Override Destination</string>
+    <string name="hide_app_background">隱藏應用後臺卡片</string>
+    <string name="hide_app_background_summary">在最近應用清單中隱藏此APP</string>
 </resources>

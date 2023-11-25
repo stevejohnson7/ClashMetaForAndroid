@@ -1,15 +1,18 @@
 package com.github.kr328.clash
 
+import android.app.ActivityManager
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.getSystemService
 import com.github.kr328.clash.common.compat.isAllowForceDarkCompat
 import com.github.kr328.clash.common.compat.isLightNavigationBarCompat
 import com.github.kr328.clash.common.compat.isLightStatusBarsCompat
 import com.github.kr328.clash.common.compat.isSystemBarsTranslucentCompat
+import com.github.kr328.clash.common.log.Log
 import com.github.kr328.clash.core.bridge.ClashException
 import com.github.kr328.clash.design.Design
 import com.github.kr328.clash.design.model.DarkMode
@@ -102,6 +105,7 @@ abstract class BaseActivity<D : Design<*>> :
         super.onCreate(savedInstanceState)
 
         applyDayNight()
+        applyHideRecents()
 
         launch {
             main()
@@ -256,5 +260,14 @@ abstract class BaseActivity<D : Design<*>> :
         }
 
         this.dayNight = dayNight
+    }
+
+    private fun applyHideRecents() {
+        if(!uiStore.excludeAppFromRecents)
+            return
+
+        val appTasks = getSystemService<ActivityManager>()?.appTasks
+        if(!appTasks.isNullOrEmpty())
+            appTasks[0].setExcludeFromRecents(true)
     }
 }

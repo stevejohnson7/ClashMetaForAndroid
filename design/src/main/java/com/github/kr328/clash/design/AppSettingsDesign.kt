@@ -21,7 +21,8 @@ class AppSettingsDesign(
     running: Boolean,
 ) : Design<AppSettingsDesign.Request>(context) {
     enum class Request {
-        ReCreateAllActivities
+        ReCreateAllActivities,
+        ChangeHideRecents
     }
 
     private val binding = DesignSettingsCommonBinding
@@ -62,6 +63,17 @@ class AppSettingsDesign(
             ) {
                 listener = OnChangedListener {
                     requests.trySend(Request.ReCreateAllActivities)
+                }
+            }
+
+            switch(
+                value = uiStore::excludeAppFromRecents,
+                icon = R.drawable.ic_outline_hide_image,
+                title = R.string.hide_app_background,
+                summary = R.string.hide_app_background_summary
+            ) {
+                listener = OnChangedListener {
+                    requests.trySend(Request.ChangeHideRecents)
                 }
             }
 

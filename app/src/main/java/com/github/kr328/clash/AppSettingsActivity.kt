@@ -1,13 +1,17 @@
 package com.github.kr328.clash
 
+import android.app.ActivityManager
 import android.content.pm.PackageManager
+import androidx.core.content.getSystemService
 import com.github.kr328.clash.common.util.componentName
 import com.github.kr328.clash.design.AppSettingsDesign
 import com.github.kr328.clash.design.model.Behavior
 import com.github.kr328.clash.service.store.ServiceStore
 import com.github.kr328.clash.util.ApplicationObserver
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.selects.select
+import kotlinx.coroutines.withContext
 
 class AppSettingsActivity : BaseActivity<AppSettingsDesign>(), Behavior {
     override suspend fun main() {
@@ -27,12 +31,27 @@ class AppSettingsActivity : BaseActivity<AppSettingsDesign>(), Behavior {
                     when (it) {
                         Event.ClashStart, Event.ClashStop, Event.ServiceRecreated ->
                             recreate()
+
                         else -> Unit
                     }
                 }
                 design.requests.onReceive {
-                    ApplicationObserver.createdActivities.forEach {
-                        it.recreate()
+                    when(it) {
+                        AppSettingsDesign.Request.ChangeHideRecents -> {
+                            withContext(Dispatchers.Main) {
+                                val appTasks = getSystemService<ActivityManager>()?.appTasks
+                                if(!appTasks.isNullOrEmpty()){
+                                    appTasks.forEach { task ->
+                                        task?.setExcludeFromRecents(uiStore.excludeAppFromRecents)
+                                    }
+                                }
+                            }
+                        }
+                        AppSettingsDesign.Request.ReCreateAllActivities -> {
+                            ApplicationObserver.createdActivities.forEach {
+                                it.recreate()
+                            }
+                        }
                     }
                 }
             }

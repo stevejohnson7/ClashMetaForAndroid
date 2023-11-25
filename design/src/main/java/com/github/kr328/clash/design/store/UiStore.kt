@@ -62,6 +62,11 @@ class UiStore(context: Context) {
         defaultValue = false,
     )
 
+    var excludeAppFromRecents: Boolean by store.boolean(
+        key = "exclude_app_from_recents",
+        defaultValue = false
+    )
+
     companion object {
         private const val PREFERENCE_NAME = "ui"
     }
